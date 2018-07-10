@@ -19,7 +19,7 @@ public extension UITableView {
   ///   - deletionAnimation: The animation for delete rows
   ///   - replacementAnimation: The animation for reload rows
   ///   - completion: Called when operation completes
-  public func reload<T: Hashable>(
+  public func reload<T: DeepHashable>(
     changes: [Change<T>],
     section: Int = 0,
     insertionAnimation: UITableViewRowAnimation = .automatic,

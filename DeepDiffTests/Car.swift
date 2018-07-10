@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Car: Hashable {
+struct Car: DeepHashable {
   let id: Int
   let name: String
   let travelledMiles: Int

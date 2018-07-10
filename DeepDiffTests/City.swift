@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct City: Hashable {
+struct City: DeepHashable {
   let name: String
 
   var hashValue: Int {
@@ -19,4 +19,3 @@ struct City: Hashable {
 func == (left: City, right: City) -> Bool {
   return left.name == right.name
 }
-

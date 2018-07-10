@@ -69,7 +69,7 @@ public final class Heckel: DiffAware {
 
   public init() {}
 
-  public func diff<T: Hashable>(old: Array<T>, new: Array<T>) -> [Change<T>] {
+  public func diff<T: DeepHashable>(old: Array<T>, new: Array<T>) -> [Change<T>] {
     // The Symbol Table
     // Each line works as the key in the table look-up, i.e. as table[line].
     var table: [Int: TableEntry] = [:]
@@ -85,7 +85,7 @@ public final class Heckel: DiffAware {
     return changes
   }
 
-  private func perform1stPass<T: Hashable>(
+  private func perform1stPass<T: DeepHashable>(
     new: Array<T>,
     table: inout [Int: TableEntry],
     newArray: inout [ArrayEntry]) {
@@ -94,7 +94,7 @@ public final class Heckel: DiffAware {
     // a. Each line i of file N is read in sequence
     new.forEach { item in
       // b. An entry for each line i is created in the table, if it doesn't already exist
-      let entry = table[item.hashValue] ?? TableEntry()
+      let entry = table[item.diffIdentifier] ?? TableEntry()
 
       // c. NC for the line's table entry is incremented
       entry.newCounter = entry.newCounter.increment()
@@ -103,11 +103,11 @@ public final class Heckel: DiffAware {
       newArray.append(.tableEntry(entry))
 
       //
-      table[item.hashValue] = entry
+      table[item.diffIdentifier] = entry
     }
   }
 
-  private func perform2ndPass<T: Hashable>(
+  private func perform2ndPass<T: DeepHashable>(
     old: Array<T>,
     table: inout [Int: TableEntry],
     oldArray: inout [ArrayEntry]) {
@@ -117,7 +117,7 @@ public final class Heckel: DiffAware {
 
     old.enumerated().forEach { tuple in
       // old
-      let entry = table[tuple.element.hashValue] ?? TableEntry()
+      let entry = table[tuple.element.diffIdentifier] ?? TableEntry()
 
       // oldCounter
       entry.oldCounter = entry.oldCounter.increment()
@@ -129,7 +129,7 @@ public final class Heckel: DiffAware {
       oldArray.append(.tableEntry(entry))
 
       //
-      table[tuple.element.hashValue] = entry
+      table[tuple.element.diffIdentifier] = entry
     }
   }
 
@@ -187,7 +187,7 @@ public final class Heckel: DiffAware {
     }
   }
 
-  private func perform6thPass<T: Hashable>(
+  private func perform6thPass<T: DeepHashable>(
     new: Array<T>,
     old: Array<T>,
     newArray: [ArrayEntry],
@@ -260,7 +260,7 @@ public final class Heckel: DiffAware {
             index: newTuple.offset
           )))
         case .indexInOther(let oldIndex):
-          if old[oldIndex] != new[newTuple.offset] {
+          if !old[oldIndex].equal(object: new[newTuple.offset]) {
             changes.append(.replace(Replace(
               oldItem: old[oldIndex],
               newItem: new[newTuple.offset],

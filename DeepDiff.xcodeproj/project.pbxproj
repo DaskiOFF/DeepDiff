@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB1A269220F524AA005A8147 /* DeepHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A269120F524AA005A8147 /* DeepHashable.swift */; };
 		D21E6E2B1FFBC1E20048AF75 /* WagnerFischer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E6E2A1FFBC1E20048AF75 /* WagnerFischer.swift */; };
 		D21E6E2C1FFBC1E20048AF75 /* WagnerFischer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E6E2A1FFBC1E20048AF75 /* WagnerFischer.swift */; };
 		D21E6E2D1FFBC1E20048AF75 /* WagnerFischer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E6E2A1FFBC1E20048AF75 /* WagnerFischer.swift */; };
@@ -92,6 +93,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB1A269120F524AA005A8147 /* DeepHashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepHashable.swift; sourceTree = "<group>"; };
 		D21E6E2A1FFBC1E20048AF75 /* WagnerFischer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WagnerFischer.swift; sourceTree = "<group>"; };
 		D21E6E2F1FFBC1EF0048AF75 /* Heckel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heckel.swift; sourceTree = "<group>"; };
 		D238491D1FA86AFC00316A21 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				D2B318F91FA8CCFC00A0B637 /* MoveReducer.swift */,
 				D2B318FA1FA8CCFC00A0B637 /* Change.swift */,
 				D2A813661FAB731600A94BDE /* Array+Extensions.swift */,
+				BB1A269120F524AA005A8147 /* DeepHashable.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				D21E6E301FFBC1EF0048AF75 /* Heckel.swift in Sources */,
 				D29C691E1FFCD8790028DE14 /* DiffAware.swift in Sources */,
 				D2B319101FA8CD2200A0B637 /* UICollectionView+Extensions.swift in Sources */,
+				BB1A269220F524AA005A8147 /* DeepHashable.swift in Sources */,
 				D2A813671FAB731600A94BDE /* Array+Extensions.swift in Sources */,
 				D2B319011FA8CD1300A0B637 /* MoveReducer.swift in Sources */,
 				D2B319001FA8CD1300A0B637 /* DeepDiff.swift in Sources */,

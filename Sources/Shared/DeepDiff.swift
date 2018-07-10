@@ -14,7 +14,7 @@ import Foundation
 ///   - old: Old collection
 ///   - new: New collection
 /// - Returns: A set of changes
-public func diff<T: Hashable>(
+public func diff<T: DeepHashable>(
   old: Array<T>,
   new: Array<T>,
   algorithm: DiffAware = Heckel()) -> [Change<T>] {

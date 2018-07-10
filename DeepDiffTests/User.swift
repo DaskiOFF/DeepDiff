@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import DeepDiff
 
-struct User: Hashable {
+typealias DeepHashable = DeepDiff.DeepHashable & Hashable
+
+struct User: DeepHashable {
   let name: String
   let age: Int
 

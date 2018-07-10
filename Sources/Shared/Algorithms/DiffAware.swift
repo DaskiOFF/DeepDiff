@@ -9,11 +9,11 @@
 import Foundation
 
 public protocol DiffAware {
-  func diff<T: Hashable>(old: Array<T>, new: Array<T>) -> [Change<T>]
+  func diff<T: DeepHashable>(old: Array<T>, new: Array<T>) -> [Change<T>]
 }
 
 extension DiffAware {
-  func preprocess<T: Hashable>(old: Array<T>, new: Array<T>) -> [Change<T>]? {
+  func preprocess<T: DeepHashable>(old: Array<T>, new: Array<T>) -> [Change<T>]? {
     switch (old.isEmpty, new.isEmpty) {
     case (true, true):
       // empty
